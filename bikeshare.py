@@ -20,7 +20,7 @@ def get_filters():
     city = input("\nEnter one of the following cities:\n[ Chicago, New York City or Washington ] : ").lower()
     city_filter = ['chicago', 'new york city', 'washington']
     while city not in city_filter:
-        print('You have entered the wrong city, kindly enter any of the following cities: chicago, new york city, washington')
+        print('Ohh, it seems you entered the wrong city, kindly enter any of the following cities: chicago, new york city, washington')
         city = input("\nEnter one of the following cities:\n[ Chicago, New York or Washington ] : ").lower()
     # get user input for month (all, january, february, ... , june)
     month = input("\nEnter a month from january to june,\n or type 'all' to select all the months  : ").lower()
@@ -157,14 +157,14 @@ def user_stats(df):
 
     # Display counts of user types
     user_types = dict(df.groupby(["User Type"])["User Type"].count())
-    print(' User type statistics '.center(80, '-'))
+    print(' User type statistics '.center(, '-'))
     print("User Type \t\t\t Total ")
     for user_type in user_types.keys():
         print("{}: \t\t\t {}".format(user_type, user_types[user_type]))
     # Display counts of gender
     try:    # this will handle any potential exception as not all dataset have a gender column
         gender = dict(df.groupby(["Gender"])["Gender"].count())
-        print(' Gender statistics '.center(80, '-'))
+        print(' Gender statistics '.center(50, '-'))
         print("Gender \t\t\t Total ")
         for user_gender in gender.keys():
             print("{}: \t\t\t {}".format(user_gender, gender[user_gender]))
@@ -172,7 +172,7 @@ def user_stats(df):
         print("Oh!, the chosen data set has no data for gender \n")
 
     # Display earliest, most recent, and most common year of birth
-    print(' Age statistics '.center(80, '-'))
+    print(' Age statistics '.center(50, '-'))
     try:
         earliest_birth_year = list(df["Birth Year"].dropna().sort_values(ascending=True).head(1))
         print("The oldest bikers for the selected filter was born in {} ".format(int(earliest_birth_year[0])))
@@ -190,27 +190,27 @@ def user_stats(df):
 
 def view_data(df):
     """
-        Display the data set used for the analysis in steps of 5 rows based on user interest.
+        Display the data set used for the analysis in steps of 3 rows based on user interest.
 
         Args:
-            (dataframe) df - dataframe used for the analysis
+            (dataframe) df - dataframe used for the analysis 
         """
 
     # remove the combined column created earlier
     df = df.drop(columns=['Start Station','End Station','Start Time', 'End Time'], axis=1)
     #request if user is interested in seeing the raw data
-    request= input("Do you want to see the first 5 lines of raw data? (yes or no): ").lower() #requsting user consent to display the dataset
+    request= input("Do you want to see the first 3 lines of raw data? (yes or no): ").lower() #requsting user consent to display the dataset
 
-    #To deplay the raw data in batches of 5s
+    #To deplay the raw data in batches of 3s
     start_index = 0
-    end_index = 5
+    end_index = 3
 
-    # request if user want to see the next 5 lines of raw data
+    # request if user want to see the next 3 lines of raw data
     while request == "yes" and end_index <= df.size:
         print(df[start_index: end_index])
         start_index = end_index
-        end_index += 5
-        request = input("Do you want to see the next 5 lines of raw data? (yes or no) : ").lower()
+        end_index += 3
+        request = input("Do you want to see the next 3 lines of raw data? (yes or no) : ").lower()
 
 
 def main():
