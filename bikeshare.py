@@ -201,16 +201,16 @@ def view_data(df):
     #request if user is interested in seeing the raw data
     request= input("Do you want to see the first 5 lines of raw data? (yes or no): ").lower() #requsting user consent to display the dataset
 
-    #To deplay the raw data in batches of 5s
+    #To deplay the raw data in batches of 3s
     start_index = 0
-    end_index = 5
+    end_index = 3
 
-    # request if user want to see the next 5 lines of raw data
+    # request if user want to see the next 3 lines of raw data
     while request == "yes" and end_index <= df.size:
         print(df[start_index: end_index])
         start_index = end_index
-        end_index += 5
-        request = input("Do you want to see the next 5 lines of raw data? (yes or no) : ").lower()
+        end_index += 3
+        request = input("Do you want to see the next 3 lines of raw data? (yes or no) : ").lower()
 
 
 def main():
