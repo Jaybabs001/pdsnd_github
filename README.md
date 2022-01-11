@@ -7,7 +7,7 @@
 Bike Share Project
 
 ### Description
-The project compare bike usage between three large cities; Chicago, New York City, and Washington, DC.
+This project analyse the data from the bike share system to draw out insight from data of bike usage in Chicago, New York City, and Washington, DC.
 
 ### Files used
 chicago.csv
