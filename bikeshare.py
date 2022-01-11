@@ -20,7 +20,7 @@ def get_filters():
     city = input("\nEnter one of the following cities:\n[ Chicago, New York City or Washington ] : ").lower()
     city_filter = ['chicago', 'new york city', 'washington']
     while city not in city_filter:
-        print('You have entered the wrong city, kindly enter any of the following cities: chicago, new york city, washington')
+        print('Ohh, it seems you entered the wrong city, kindly enter any of the following cities: chicago, new york city, washington')
         city = input("\nEnter one of the following cities:\n[ Chicago, New York or Washington ] : ").lower()
     # get user input for month (all, january, february, ... , june)
     month = input("\nEnter a month from january to june,\n or type 'all' to select all the months  : ").lower()
