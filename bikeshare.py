@@ -157,14 +157,14 @@ def user_stats(df):
 
     # Display counts of user types
     user_types = dict(df.groupby(["User Type"])["User Type"].count())
-    print(' User type statistics '.center(80, '-'))
+    print(' User type statistics '.center(, '-'))
     print("User Type \t\t\t Total ")
     for user_type in user_types.keys():
         print("{}: \t\t\t {}".format(user_type, user_types[user_type]))
     # Display counts of gender
     try:    # this will handle any potential exception as not all dataset have a gender column
         gender = dict(df.groupby(["Gender"])["Gender"].count())
-        print(' Gender statistics '.center(80, '-'))
+        print(' Gender statistics '.center(50, '-'))
         print("Gender \t\t\t Total ")
         for user_gender in gender.keys():
             print("{}: \t\t\t {}".format(user_gender, gender[user_gender]))
@@ -172,7 +172,7 @@ def user_stats(df):
         print("Oh!, the chosen data set has no data for gender \n")
 
     # Display earliest, most recent, and most common year of birth
-    print(' Age statistics '.center(80, '-'))
+    print(' Age statistics '.center(50, '-'))
     try:
         earliest_birth_year = list(df["Birth Year"].dropna().sort_values(ascending=True).head(1))
         print("The oldest bikers for the selected filter was born in {} ".format(int(earliest_birth_year[0])))
@@ -190,16 +190,16 @@ def user_stats(df):
 
 def view_data(df):
     """
-        Display the data set used for the analysis in steps of 5 rows based on user interest.
+        Display the data set used for the analysis in steps of 3 rows based on user interest.
 
         Args:
-            (dataframe) df - dataframe used for the analysis
+            (dataframe) df - dataframe used for the analysis 
         """
 
     # remove the combined column created earlier
     df = df.drop(columns=['Start Station','End Station','Start Time', 'End Time'], axis=1)
     #request if user is interested in seeing the raw data
-    request= input("Do you want to see the first 5 lines of raw data? (yes or no): ").lower() #requsting user consent to display the dataset
+    request= input("Do you want to see the first 3 lines of raw data? (yes or no): ").lower() #requsting user consent to display the dataset
 
     #To deplay the raw data in batches of 3s
     start_index = 0
